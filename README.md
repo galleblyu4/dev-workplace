@@ -30,3 +30,12 @@ docker run --rm -v practice-data:/data ubuntu cat /data/test.txt
 
 결과: Docker volume test successful
 
+
+## Docker Bind Mount 실습
+
+명령어:
+docker run --rm -v "$(pwd):/workspace" ubuntu ls /workspace
+
+결과: Codespaces 프로젝트 파일을 Ubuntu 컨테이너 내부 /workspace에서 확인함.
+
+설명: Bind Mount를 사용하면 호스트의 프로젝트 폴더와 컨테이너 내부 폴더가 연결되어 파일을 공유할 수 있다.
