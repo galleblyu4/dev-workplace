@@ -1,0 +1,13 @@
+$ git branch --show-current
+main
+$ git remote -v
+origin	https://github.com/galleblyu4/dev-workplace (fetch)
+origin	https://github.com/galleblyu4/dev-workplace (push)
+$ git --version
+git version 2.56.0
+user.name configured:
+yes
+user.email configured:
+yes
+$ git config --get init.defaultBranch
+main
