@@ -1,0 +1,113 @@
+$ docker --version
+Docker version 29.9.2-2, build a82e528901260c8df6073311379eac65f92db204
+$ docker info
+Client:
+ Version:    29.9.2-2
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.38.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v5.6.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 10
+  Running: 1
+  Paused: 0
+  Stopped: 9
+ Images: 8
+ Server Version: 29.9.2-2
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc version: 29dd3dc2b13b4123162e5fe132504bb4b15569f1
+ init version: 
+ Security Options:
+  apparmor
+   Profile: default
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.8.0-1064-azure
+ Operating System: Ubuntu 24.04.5 LTS (containerized)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 2
+ Total Memory: 7.756GiB
+ Name: codespaces-36b62a
+ ID: 6909f2e2-d057-4c1d-9e2e-a08048c308f6
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Username: codespacesdev
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+  ::1/128
+ Live Restore Enabled: false
+ Firewall Backend: iptables
+  EnableUserlandProxy: true
+  UserlandProxyPath: /usr/libexec/docker/docker-proxy
+
+$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+$ docker images
+IMAGE                      ID             DISK USAGE   CONTENT SIZE   EXTRA
+busybox:latest             a46257e06c82       6.81MB         2.23MB        
+dev-workplace-web:1.0      e85bb1b54e1e       93.6MB         26.3MB   U    
+dev-workplace-web:latest   f4c50628ed80       93.6MB         26.3MB   U    
+hello-world:latest         c567b231f656       25.9kB         9.49kB   U    
+my-docker-site:v1          9da30ec36a9d       93.6MB         26.3MB   U    
+my-web:latest              a9ee1e2d2f84       93.6MB         26.3MB   U    
+nginx:alpine               785835ea65db       94.5MB         27.2MB   U    
+ubuntu:latest              6a06111c3b0a        163MB         45.9MB   U    
+$ docker ps -a
+CONTAINER ID   IMAGE                   COMMAND                  CREATED                  STATUS                              PORTS                                     NAMES
+03f11ac1bb73   hello-world             "/hello"                 Less than a second ago   Exited (0) Less than a second ago                                             keen_hodgkin
+3ef70739a7c1   hello-world             "/hello"                 About a minute ago       Exited (0) About a minute ago                                                 zealous_mahavira
+5b3cc9350c70   hello-world             "/hello"                 16 hours ago             Exited (0) 16 hours ago                                                       gifted_robinson
+2ab7ab0d9c95   hello-world             "/hello"                 16 hours ago             Exited (0) 16 hours ago                                                       priceless_mccarthy
+7e4cc65d2b46   ubuntu                  "bash"                   16 hours ago             Exited (0) 16 hours ago                                                       ubuntu-practice
+3c81cb8b65d8   dev-workplace-web:1.0   "/docker-entrypoint.…"   16 hours ago             Created                                                                       dev-web-2
+99c5d7149a18   dev-workplace-web:1.0   "/docker-entrypoint.…"   16 hours ago             Created                                                                       dev-web
+64d2a7ba890d   nginx:alpine            "/docker-entrypoint.…"   17 hours ago             Exited (255) 16 hours ago           80/tcp                                    network-web
+cafe221aba69   dev-workplace-web       "/docker-entrypoint.…"   17 hours ago             Up 5 minutes                        0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   dev-workplace-web-1
+ef8c6aaeb072   my-docker-site:v1       "/docker-entrypoint.…"   17 hours ago             Exited (255) 16 hours ago           0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   my-docker-container
+d1189f829bec   my-web                  "/docker-entrypoint.…"   18 hours ago             Exited (255) 16 hours ago           0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-container
